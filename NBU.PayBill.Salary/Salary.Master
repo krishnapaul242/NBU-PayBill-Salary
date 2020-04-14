@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Salary.master.cs" Inherits="NBU.PayBill.Salary.Salary" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Salary <%: Page.Title %> - NBU PayBill</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+</head>
+<body>
+    <form id="MasterForm" class="form-horizontal" runat="server">
+        <div>
+            <%--  Header Content here  --%>
+            <div class="well" style="padding-bottom:5px;">
+                <asp:Label ID="lblEmployerName" ClientIDMode="Static" CssClass="h2" runat="server" Text=""></asp:Label>
+
+                <nav class="navbar navbar-default" style="margin-top:10px;">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">PayBill</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="Home.aspx">Salary Home</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Master <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="Employee.aspx">Employee</a></li>
+                                    <li><a href="DeptDesgAndFinInstitution.aspx">Department, Designation and Fin Institution</a></li>
+                                    <li><a href="EarningAndDeductions.aspx">Earnings and Deductions</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="Transaction.aspx">Transaction</a></li>
+                            <li><a href="AddlTransaction.aspx">Addl. Transaction</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="Reports.aspx">Monthly</a></li>
+                                    <li><a href="Reports.aspx">Quarterly</a></li>
+                                    <li><a href="Reports.aspx">Yearly</a></li>
+                                    <li><a href="Reports.aspx">Misc</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <%--  Body Content here  --%>
+            <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

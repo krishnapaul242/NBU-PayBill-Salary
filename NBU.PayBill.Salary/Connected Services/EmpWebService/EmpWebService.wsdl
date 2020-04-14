@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EmpWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50666/EmpWebService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50666/EmpWebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmpWebService_IsValidUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUser" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_IsValidUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmpAccessByApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpAccessByApplication" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmpAccessByApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpAccessByApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmpDetailByEmpId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpDetailByEmpId" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmpDetailByEmpId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpDetailByEmpIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetActiveEmployeeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveEmployeeList" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetActiveEmployeeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveEmployeeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmpDependentListByEmpID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpDependentListByEmpID" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmpDependentListByEmpID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmpDependentListByEmpIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmployerDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployerDetail" />
+  </wsdl:message>
+  <wsdl:message name="IEmpWebService_GetEmployerDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployerDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmpWebService">
+    <wsdl:operation name="IsValidUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpWebService/IsValidUser" message="tns:IEmpWebService_IsValidUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpWebService/IsValidUserResponse" message="tns:IEmpWebService_IsValidUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpAccessByApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpWebService/GetEmpAccessByApplication" message="tns:IEmpWebService_GetEmpAccessByApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpWebService/GetEmpAccessByApplicationResponse" message="tns:IEmpWebService_GetEmpAccessByApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpDetailByEmpId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpWebService/GetEmpDetailByEmpId" message="tns:IEmpWebService_GetEmpDetailByEmpId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpWebService/GetEmpDetailByEmpIdResponse" message="tns:IEmpWebService_GetEmpDetailByEmpId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveEmployeeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpWebService/GetActiveEmployeeList" message="tns:IEmpWebService_GetActiveEmployeeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpWebService/GetActiveEmployeeListResponse" message="tns:IEmpWebService_GetActiveEmployeeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpDependentListByEmpID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpWebService/GetEmpDependentListByEmpID" message="tns:IEmpWebService_GetEmpDependentListByEmpID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpWebService/GetEmpDependentListByEmpIDResponse" message="tns:IEmpWebService_GetEmpDependentListByEmpID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployerDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpWebService/GetEmployerDetail" message="tns:IEmpWebService_GetEmployerDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpWebService/GetEmployerDetailResponse" message="tns:IEmpWebService_GetEmployerDetail_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmpWebService" type="tns:IEmpWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsValidUser">
+      <soap:operation soapAction="http://tempuri.org/IEmpWebService/IsValidUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpAccessByApplication">
+      <soap:operation soapAction="http://tempuri.org/IEmpWebService/GetEmpAccessByApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpDetailByEmpId">
+      <soap:operation soapAction="http://tempuri.org/IEmpWebService/GetEmpDetailByEmpId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveEmployeeList">
+      <soap:operation soapAction="http://tempuri.org/IEmpWebService/GetActiveEmployeeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpDependentListByEmpID">
+      <soap:operation soapAction="http://tempuri.org/IEmpWebService/GetEmpDependentListByEmpID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployerDetail">
+      <soap:operation soapAction="http://tempuri.org/IEmpWebService/GetEmployerDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmpWebService">
+    <wsdl:port name="BasicHttpBinding_IEmpWebService" binding="tns:BasicHttpBinding_IEmpWebService">
+      <soap:address location="http://localhost:50666/EmpWebService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NBU.EmpWebService.Service.EmpWebService" CodeBehind="EmpWebService.svc.cs" %>
