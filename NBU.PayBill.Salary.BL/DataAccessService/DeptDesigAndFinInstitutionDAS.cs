@@ -53,9 +53,10 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 helper.OpenConnection();
                 query = @"
                            INSERT INTO [dbo].[DepartmentMaster]
-                                ([DepartmentName])
+                                ([DepartmentName], [DepartmentBankAccount)
                             VALUES ('"
-                                + departmentBO.DepartmentName +
+                                + departmentBO.DepartmentName + @"','" 
+                                + departmentBO.DepartmentBankAccount +
                           @"')";
 
                 numberOfRowImpacted = helper.ExecuteNonQuery(query);
@@ -117,7 +118,7 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
             {
                 helper.OpenConnection();
                 query = @"
-                        SELECT [DepartmentID] as DepartmentCD,[DepartmentName] as DepartmentName
+                        SELECT [DepartmentID] as DepartmentCD,[DepartmentName] as DepartmentName, [DepartmentBankAccount] as DepartmentBankAccount
                         FROM [dbo].[DepartmentMaster]";
 
                 ds = helper.ExecuteDataSet(query);
@@ -215,7 +216,7 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
             {
                 helper.OpenConnection();
                 query = @"
-                        SELECT [DesignationID] as DesignationCD,[DepartmentName] as DesignationName
+                        SELECT [DesignationID] as DesignationCD,[DesignationName] as DesignationName
                         FROM [dbo].[DesignationMaster]";
 
                 ds = helper.ExecuteDataSet(query);

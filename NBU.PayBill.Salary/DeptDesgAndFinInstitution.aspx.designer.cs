@@ -87,31 +87,31 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.Label uc_lbl_title;
 
         /// <summary>
-        /// txtDeptName control.
+        /// inputDeptName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeptName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputDeptName;
 
         /// <summary>
-        /// txtBankAcc control.
+        /// inputDeptBankAcc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBankAcc;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputDeptBankAcc;
 
         /// <summary>
-        /// btnDeptAdd control.
+        /// btnAddDept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeptAdd;
+        protected global::System.Web.UI.WebControls.Button btnAddDept;
 
         /// <summary>
         /// btnDeptClear control.
