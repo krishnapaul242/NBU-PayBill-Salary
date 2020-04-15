@@ -11,6 +11,7 @@ namespace NBU.PayBill.Salary.BL.BusinessObjects
     {
         private string departmentCD;
         private string departmentName;
+        private string departmentBankAccount;
 
         public string DepartmentCD
         {
@@ -22,6 +23,12 @@ namespace NBU.PayBill.Salary.BL.BusinessObjects
         {
             get => departmentName;
             set => departmentName = value;
+        }
+
+        public string DepartmentBankAccount
+        {
+            get => departmentBankAccount;
+            set => departmentBankAccount = value;
         }
     }
 }
