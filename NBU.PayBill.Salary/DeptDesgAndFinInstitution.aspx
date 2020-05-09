@@ -8,7 +8,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Departments, Designation and Financial Institutions</div>
         <div class="panel-body">
-            <div class="container">
+            <div class="container" id="divShowDetails" runat="server">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="well well-sm">
@@ -19,7 +19,7 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                            <asp:Label ID="lblDeptName" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:Label>
+                                        <asp:Label ID="lblDeptName" runat="server" Text='<%# Eval("DepartmentName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -34,7 +34,7 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                            <asp:Label ID="lblDesgName" runat="server" Text='<%# Eval("DesignationName") %>'></asp:Label>
+                                        <asp:Label ID="lblDesgName" runat="server" Text='<%# Eval("DesignationName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -49,7 +49,7 @@
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                            <asp:Label ID="lblFinInstitutionName" runat="server" Text='<%# Eval("FinancialInstitutionName") %>'></asp:Label>
+                                        <asp:Label ID="lblFinInstitutionName" runat="server" Text='<%# Eval("FinancialInstitutionName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <%--<asp:TemplateField HeaderText="Address">
@@ -62,8 +62,99 @@
                     </div>
                 </div>
             </div>
+            <div class="container" id="divDepartmentDetails" runat="server">
+                <div class="row">
+                    <div class="form-row">
+                        <div class="form-group col-md-12 well well-sm">
+                            <asp:Label ID="uc_lbl_title" ClientIDMode="Static" CssClass="h3" runat="server" Text="Add New Department"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="txtDeptName">Name</label>
+                            <input runat="server" id="inputDeptName" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="txtBankAcc">Bank Account Number</label>
+                            <input runat="server" id="inputDeptBankAcc" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnAddDept" runat="server" CssClass="btn btn-block btn-success text-center" OnClick="btnAddDept_Click" OnCommand="btnAddDept_Command" Text="Submit" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnDeptClear" CssClass="btn btn-secondary btn-block text-center" ClientIDMode="Static" runat="server" Text="Clear" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnDeptCancel" CssClass="btn btn-danger btn-block text-center" ClientIDMode="Static" runat="server" Text="Cancel" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="divDesignationDetails" runat="server">
+                <div class="row">
+                    <div class="form-row">
+                        <div class="form-group col-md-12 well well-sm">
+                            <asp:Label ID="Label1" ClientIDMode="Static" CssClass="h3" runat="server" Text="Add New Designation"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="txtDesigName">Name</label>
+                            <asp:TextBox CssClass="form-control" ID="txtDesigName" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnDesigAdd" OnClick="btnDesigAdd_Click" CssClass="btn btn-danger btn-block text-center" ClientIDMode="Static" runat="server" Text="Cancel" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnDesigClear" CssClass="btn btn-secondary btn-block text-center" ClientIDMode="Static" runat="server" Text="Clear" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnDesigCancel" CssClass="btn btn-success btn-block text-center" ClientIDMode="Static" runat="server" Text="Submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="divFinInstDetails" runat="server">
+                <div class="row">
+                    <div class="form-row">
+                        <div class="form-group col-md-12 well well-sm">
+                            <asp:Label ID="Label2" ClientIDMode="Static" CssClass="h3" runat="server" Text="Add New Financial Institution"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="txtFinInstName">Name</label>
+                            <asp:TextBox CssClass="form-control" ID="txtFinInstName" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="txtFinInstAddress">Address</label>
+                            <asp:TextBox CssClass="form-control" ID="txtFinInstAddress" ClientIDMode="Static" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnFinInstAdd" CssClass="btn btn-danger btn-block text-center" ClientIDMode="Static" runat="server" Text="Cancel" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnFinInstClear" CssClass="btn btn-secondary btn-block text-center" ClientIDMode="Static" runat="server" Text="Clear" />
+                        </div>
+                        <div class="form-group col-md-4">
+                            <asp:Button ID="btnFinInstCancel" CssClass="btn btn-success btn-block text-center" ClientIDMode="Static" runat="server" Text="Submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="panel-footer">
+            <asp:LinkButton runat="server" ID="BtnAddDept22" OnClick="BtnAddDept_Click2" ClientIDMode="Static"  Text="Add new Department"></asp:LinkButton>
             <%--Label for No Records Found--%>
             <asp:Label ID="lblNoRecordsFound" runat="server" Text=""></asp:Label>
             <br />
@@ -72,92 +163,5 @@
             <a href="#addFinInstitutionForm" class="btn btn-primary" rel="modal:open">+ Add New Financial Institution </a>
         </div>
     </div>
-    <div class="modal" id="addDepartmentForm">
-        <div class="form-row">
-            <div class="form-group col-md-12 well well-sm">
-                <asp:Label ID="uc_lbl_title" ClientIDMode="Static" CssClass="h3" runat="server" Text="Add New Department"></asp:Label>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="txtDeptName">Name</label>
-                <input runat="server" ID="inputDeptName" class="form-control" type="text" />
-                <%--<asp:TextBox CssClass="form-control" Text="Department Name" ID="txtDeptName" ClientIDMode="Static" runat="server"></asp:TextBox>--%>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="txtBankAcc">Bank Account Number</label>
-                <input runat="server" id="inputDeptBankAcc" class="form-control" type="text" />
-                <%--<asp:TextBox CssClass="form-control" Text="Bank Account" ID="txtBankAcc" ClientIDMode="Static" runat="server"></asp:TextBox>--%>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <%--<asp:Button ID="testButton" OnClick="btnDeptAdd_Click" CssClass="btn btn-block btn-success text-center" runat="server" Text="Submit" />--%>
-                <%--<asp:Button ID="btnDeptAdd" OnClick="btnDeptAdd_Click" CssClass="btn btn-success btn-block text-center" ClientIDMode="Static" runat="server" Text="Submit" />--%>
-                <asp:Button ID="btnAddDept"  runat="server" CssClass="btn btn-block btn-success text-center" OnClick="btnAddDept_Click" OnCommand="btnAddDept_Command" Text="Submit" />
-            </div>
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnDeptClear" CssClass="btn btn-secondary btn-block text-center" ClientIDMode="Static" runat="server" Text="Clear" />
-            </div>
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnDeptCancel" CssClass="btn btn-danger btn-block text-center" ClientIDMode="Static" runat="server" Text="Cancel" />
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="addDesignationForm">
-        <div class="form-row">
-            <div class="form-group col-md-12 well well-sm">
-                <asp:Label ID="Label1" ClientIDMode="Static" CssClass="h3" runat="server" Text="Add New Designation"></asp:Label>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="txtDesigName">Name</label>
-                <asp:TextBox CssClass="form-control" ID="txtDesigName" ClientIDMode="Static" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnDesigAdd" OnClick="btnDesigAdd_Click" CssClass="btn btn-danger btn-block text-center" ClientIDMode="Static" runat="server" Text="Cancel" />
-            </div>
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnDesigClear" CssClass="btn btn-secondary btn-block text-center" ClientIDMode="Static" runat="server" Text="Clear" />
-            </div>
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnDesigCancel"  CssClass="btn btn-success btn-block text-center" ClientIDMode="Static" runat="server" Text="Submit" />
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="addFinInstitutionForm">
-        <div class="form-row">
-            <div class="form-group col-md-12 well well-sm">
-                <asp:Label ID="Label2" ClientIDMode="Static" CssClass="h3" runat="server" Text="Add New Financial Institution"></asp:Label>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="txtFinInstName">Name</label>
-                <asp:TextBox CssClass="form-control" ID="txtFinInstName" ClientIDMode="Static" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="txtFinInstAddress">Address</label>
-                <asp:TextBox CssClass="form-control" ID="txtFinInstAddress" ClientIDMode="Static" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnFinInstAdd" CssClass="btn btn-danger btn-block text-center" ClientIDMode="Static" runat="server" Text="Cancel" />
-            </div>
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnFinInstClear" CssClass="btn btn-secondary btn-block text-center" ClientIDMode="Static" runat="server" Text="Clear" />
-            </div>
-            <div class="form-group col-md-4">
-                <asp:Button ID="btnFinInstCancel" CssClass="btn btn-success btn-block text-center" ClientIDMode="Static" runat="server" Text="Submit" />
-            </div>
-        </div>
-    </div>
+   
 </asp:Content>

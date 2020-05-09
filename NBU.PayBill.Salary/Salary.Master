@@ -19,15 +19,17 @@
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <!-- Font-Awesome Kit -->
+    <script src="https://kit.fontawesome.com/05c53cb965.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <form id="MasterForm" class="form-horizontal" runat="server">
         <div>
             <%--  Header Content here  --%>
-            <div class="well" style="padding-bottom:5px;">
+            <div class="well" style="padding-bottom: 5px;">
                 <asp:Label ID="lblEmployerName" ClientIDMode="Static" CssClass="h2" runat="server" Text=""></asp:Label>
 
-                <nav class="navbar navbar-default" style="margin-top:10px;">
+                <nav class="navbar navbar-default" style="margin-top: 10px;">
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="#">PayBill</a>
@@ -38,7 +40,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Master <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="Employee.aspx">Employee</a></li>
-                                    <li><a href="DeptDesgAndFinInstitution.aspx">Department, Designation and Fin Institution</a></li>
+                                    <li><a href="DeptDesigAndFinInstitution.aspx">Department, Designation and Fin Institution</a></li>
                                     <li><a href="EarningAndDeductions.aspx">Earnings and Deductions</a></li>
                                 </ul>
                             </li>

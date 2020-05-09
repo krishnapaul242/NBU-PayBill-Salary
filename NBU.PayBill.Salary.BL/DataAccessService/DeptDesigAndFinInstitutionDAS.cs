@@ -5,8 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NBU.Common.Helper;
 using NBU.PayBill.Salary.BL.BusinessObjects;
+using NBU.Common.Helper;
 
 namespace NBU.PayBill.Salary.BL.DataAccessService
 {
@@ -53,11 +53,37 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 helper.OpenConnection();
                 query = @"
                            INSERT INTO [dbo].[DepartmentMaster]
-                                ([DepartmentName], [DepartmentBankAccount)
+                                ([DepartmentName], [DepartmentBankAccount])
                             VALUES ('"
                                 + departmentBO.DepartmentName + @"','" 
                                 + departmentBO.DepartmentBankAccount +
                           @"')";
+
+                numberOfRowImpacted = helper.ExecuteNonQuery(query);
+            }
+            catch (Exception ex)
+            {
+                numberOfRowImpacted = -1;
+            }
+            finally
+            {
+                helper.CloseConnection();
+            }
+
+            return numberOfRowImpacted;
+        }
+
+        public int RemoveDepartment(DepartmentBO departmentBO)
+        {
+            SQLHelper helper = SQLHelper.GetInstance(this.connectionString);
+            int numberOfRowImpacted = 0;
+            try
+            {
+                helper.OpenConnection();
+                query = @"
+                           DELETE FROM [dbo].[DepartmentMaster]
+                                WHERE [DepartmentID] = "
+                                + departmentBO.DepartmentCD;
 
                 numberOfRowImpacted = helper.ExecuteNonQuery(query);
             }
@@ -88,8 +114,9 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 helper.OpenConnection();
                 query = @"
                            UPDATE [dbo].[DepartmentMaster]
-                           SET [DepartmentName] = '" + departmentBO.DepartmentName + @"'
-                           WHERE [DepartmentID] = '" + departmentBO.DepartmentCD   + @"')";
+                           SET [DepartmentName] = '" + departmentBO.DepartmentName + @"',
+                               [DepartmentBankAccount] = '" + departmentBO.DepartmentBankAccount + @"'
+                           WHERE [DepartmentID] = " + departmentBO.DepartmentCD ;
 
                 numberOfRowImpacted = helper.ExecuteNonQuery(query);
             }
@@ -120,6 +147,33 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 query = @"
                         SELECT [DepartmentID] as DepartmentCD,[DepartmentName] as DepartmentName, [DepartmentBankAccount] as DepartmentBankAccount
                         FROM [dbo].[DepartmentMaster]";
+
+                ds = helper.ExecuteDataSet(query);
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+            }
+            finally
+            {
+                helper.CloseConnection();
+            }
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
+                return StringUtil.SerializeObjectToJSON(ds.Tables[0]);
+            else
+                return "DB_ERROR : " + dbErrMsg;
+        }
+
+        public string GetDepartment(DepartmentBO departmentBO)
+        {
+            SQLHelper helper = SQLHelper.GetInstance(this.connectionString);
+            try
+            {
+                helper.OpenConnection();
+                query = @"
+                        SELECT [DepartmentID] as DepartmentCD,[DepartmentName] as DepartmentName, [DepartmentBankAccount] as DepartmentBankAccount
+                        FROM [dbo].[DepartmentMaster]
+                        WHERE [DepartmentID] = " + departmentBO.DepartmentCD;
 
                 ds = helper.ExecuteDataSet(query);
             }
@@ -171,6 +225,32 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
             return numberOfRowImpacted;
         }
 
+        public int RemoveDesignation(DesignationBO designationBO)
+        {
+            SQLHelper helper = SQLHelper.GetInstance(this.connectionString);
+            int numberOfRowImpacted = 0;
+            try
+            {
+                helper.OpenConnection();
+                query = @"
+                           DELETE FROM [dbo].[DesignationMaster]
+                                WHERE [DesignationID] = "
+                                + designationBO.DesignationCD;
+
+                numberOfRowImpacted = helper.ExecuteNonQuery(query);
+            }
+            catch (Exception ex)
+            {
+                numberOfRowImpacted = -1;
+            }
+            finally
+            {
+                helper.CloseConnection();
+            }
+
+            return numberOfRowImpacted;
+        }
+
         /// <summary>
         /// UpdateDesignation() is a function which takes DesignationBO as parameter and update its data in database.
         /// It returns the number of rows affected by the operation which is 1 in success and 0 in failure.
@@ -187,7 +267,7 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 query = @"
                            UPDATE [dbo].[DesignationMaster]
                            SET [DesignationName] = '" + designationBO.DesignationName + @"'
-                           WHERE [DesignationID] = '" + designationBO.DesignationCD + @"')";
+                           WHERE [DesignationID] = " + designationBO.DesignationCD ;
 
                 numberOfRowImpacted = helper.ExecuteNonQuery(query);
             }
@@ -218,6 +298,33 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 query = @"
                         SELECT [DesignationID] as DesignationCD,[DesignationName] as DesignationName
                         FROM [dbo].[DesignationMaster]";
+
+                ds = helper.ExecuteDataSet(query);
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+            }
+            finally
+            {
+                helper.CloseConnection();
+            }
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
+                return StringUtil.SerializeObjectToJSON(ds.Tables[0]);
+            else
+                return "DB_ERROR : " + dbErrMsg;
+        }
+
+        public string GetDesignation(DesignationBO designationBO)
+        {
+            SQLHelper helper = SQLHelper.GetInstance(this.connectionString);
+            try
+            {
+                helper.OpenConnection();
+                query = @"
+                        SELECT [DesignationID] as DesignationCD,[DesignationName] as DesignationName
+                        FROM [dbo].[DesignationMaster]
+                        WHERE [DesignationID] = " + designationBO.DesignationCD;
 
                 ds = helper.ExecuteDataSet(query);
             }
@@ -269,6 +376,32 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
             return numberOfRowImpacted;
         }
 
+        public int RemoveFinancialInstitution(FinancialInstitutionBO financialInstitutionBO)
+        {
+            SQLHelper helper = SQLHelper.GetInstance(this.connectionString);
+            int numberOfRowImpacted = 0;
+            try
+            {
+                helper.OpenConnection();
+                query = @"
+                           DELETE FROM [dbo].[FinancialInstitutionMaster]
+                                WHERE [FinancialInstitutionID] = "
+                                + financialInstitutionBO.FinancialInstitutionCD;
+
+                numberOfRowImpacted = helper.ExecuteNonQuery(query);
+            }
+            catch (Exception ex)
+            {
+                numberOfRowImpacted = -1;
+            }
+            finally
+            {
+                helper.CloseConnection();
+            }
+
+            return numberOfRowImpacted;
+        }
+
         /// <summary>
         /// Update FinancialInstituion() is a function which takes FinancialInstituionBO as parameter and update its data in database.
         /// It returns the number of rows affected by the operation which is 1 in success and 0 in failure.
@@ -286,7 +419,7 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                            UPDATE [dbo].[FinancialInstitutionMaster]
                            SET [FinancialInstitutionName] = '" + financialInstitutionBO.FinancialInstitutionName + @"',
                                [FinancialInstitutionAddress = '" + financialInstitutionBO.FinancialInstitutionAddress + @"'
-                           WHERE [FinancialInstitutionID] = '" + financialInstitutionBO.FinancialInstitutionCD + @"')";
+                           WHERE [FinancialInstitutionID] = " + financialInstitutionBO.FinancialInstitutionCD ;
 
                 numberOfRowImpacted = helper.ExecuteNonQuery(query);
             }
@@ -319,6 +452,35 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                                 ,[FinancialInstitutionName] as FinancialInstitutionName
                                 ,[FinancialInstitutionAddress] as FinancialInstitutionAddress
                         FROM [dbo].[FinancialInstitutionMaster]";
+
+                ds = helper.ExecuteDataSet(query);
+            }
+            catch (Exception ex)
+            {
+                string err = ex.Message;
+            }
+            finally
+            {
+                helper.CloseConnection();
+            }
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
+                return StringUtil.SerializeObjectToJSON(ds.Tables[0]);
+            else
+                return "DB_ERROR : " + dbErrMsg;
+        }
+
+        public string GetFinancialInstitution(FinancialInstitutionBO financialInstitutionBO)
+        {
+            SQLHelper helper = SQLHelper.GetInstance(this.connectionString);
+            try
+            {
+                helper.OpenConnection();
+                query = @"
+                        SELECT [FinancialInstitutionID] as FinancialInstitutionCD
+                                ,[FinancialInstitutionName] as FinancialInstitutionName
+                                ,[FinancialInstitutionAddress] as FinancialInstitutionAddress
+                        FROM [dbo].[FinancialInstitutionMaster]
+                        WHERE [FinancialInstitutionID] = " + financialInstitutionBO.FinancialInstitutionCD;
 
                 ds = helper.ExecuteDataSet(query);
             }
