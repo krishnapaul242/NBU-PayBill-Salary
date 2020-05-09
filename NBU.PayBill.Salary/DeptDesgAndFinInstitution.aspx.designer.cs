@@ -15,6 +15,15 @@ namespace NBU.PayBill.Salary
     {
 
         /// <summary>
+        /// divShowDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divShowDetails;
+
+        /// <summary>
         /// lblTitleDept control.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.GridView gvFinInstitution;
 
         /// <summary>
-        /// lblNoRecordsFound control.
+        /// divDepartmentDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoRecordsFound;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDepartmentDetails;
 
         /// <summary>
         /// uc_lbl_title control.
@@ -132,6 +141,15 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.Button btnDeptCancel;
 
         /// <summary>
+        /// divDesignationDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDesignationDetails;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -175,6 +193,15 @@ namespace NBU.PayBill.Salary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDesigCancel;
+
+        /// <summary>
+        /// divFinInstDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFinInstDetails;
 
         /// <summary>
         /// Label2 control.
@@ -229,5 +256,23 @@ namespace NBU.PayBill.Salary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFinInstCancel;
+
+        /// <summary>
+        /// BtnAddDept22 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton BtnAddDept22;
+
+        /// <summary>
+        /// lblNoRecordsFound control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoRecordsFound;
     }
 }
