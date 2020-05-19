@@ -14,6 +14,35 @@ namespace NBU.PayBill.Salary
 {
     public partial class Employee : System.Web.UI.Page
     {
+        EmployeeItemBO employeeFilter
+        {
+            set
+            {
+                ViewState["FILTER"] = value;
+            }
+            get
+            {
+                if (ViewState["FILTER"] == null)
+                {
+                    //ViewState["FILTER"] = new EmployeeItemBO();
+                    return null;
+                }
+                return (EmployeeItemBO)ViewState["FILTER"];
+            }
+        }
+
+        List<EmployeeItemBO> employees
+        {
+            get
+            {
+                if(ViewState["EMPLOYEES"] == null)
+                {
+                    ViewState["EMPLOYEES"] = EmployeeBusController.GetAllEmployees();
+                }
+                
+                return (List<EmployeeItemBO>)ViewState["EMPLOYEES"];
+            }
+        }
         List<CategoryBO> categories
         {
             get
@@ -25,16 +54,59 @@ namespace NBU.PayBill.Salary
                 return (List<CategoryBO>)ViewState["ALL_CATEGORIES"];
             }
         }
+
+        List<DepartmentBO> departments
+        {
+            get
+            {
+                if(ViewState["ALL_DEPARTMENTS"] == null)
+                {
+                    ViewState["ALL_DEPARTMENTS"] = DeptDesigAndFinInstitutionBusController.GetDepartmentBOs();
+                }
+                return (List<DepartmentBO>)ViewState["ALL_DEPARTMENTS"];
+            }
+        }
+
+        List<DesignationBO> designations
+        {
+            get
+            {
+                if(ViewState["ALL_DESIGNATIONS"] == null)
+                {
+                    ViewState["ALL_DESIGNATIONS"] = DeptDesigAndFinInstitutionBusController.GetDesignationBOs();
+                }
+                return (List<DesignationBO>)ViewState["ALL_DESIGNATIONS"];
+            }
+        }
+
+        /* 
+         
+             get
+            {
+                if(ViewState[""] == null)
+                {
+                    ViewState[""] = DeptDesigAndFinInstitutionBusController
+                }
+                return (List<>)ViewState[""];
+            }
+             
+             */
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.ddlCategory.DataTextField = "CategoryName";
-            this.ddlCategory.DataValueField = "CategoryID";
-            this.ddlCategory.DataSource = this.categories;
-            this.ddlCategory.DataBind();
-            EmpListDemoLoader();
             if (!this.IsPostBack)
             {
-
+                this.ddlCategory.DataTextField = "CategoryName";
+                this.ddlCategory.DataValueField = "CategoryID";
+                this.ddlCategory.DataSource = this.categories;
+                this.ddlCategory.DataBind();
+                this.ddlDepartment.DataTextField = "DepartmentName";
+                this.ddlDepartment.DataValueField = "DepartmentCD";
+                this.ddlDepartment.DataSource = this.departments;
+                this.ddlDepartment.DataBind();
+                this.ddlDesignation.DataTextField = "DesignationName";
+                this.ddlDesignation.DataValueField = "DesignationCD";
+                this.ddlDesignation.DataSource = this.designations;
+                this.ddlDesignation.DataBind();
             }
             else
             {
@@ -49,24 +121,8 @@ namespace NBU.PayBill.Salary
 
         private void EmpListDemoLoader()
         {
-            string constr = ConfigurationManager.AppSettings["ConStr"];
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlCommand cmd = new SqlCommand(@"SELECT TOP 20 * FROM [dbo].[EMPLMAST]"))
-                {
-                    using (SqlDataAdapter sda = new SqlDataAdapter())
-                    {
-                        cmd.Connection = con;
-                        sda.SelectCommand = cmd;
-                        using (DataTable dt = new DataTable())
-                        {
-                            sda.Fill(dt);
-                            GridView1.DataSource = dt;
-                            GridView1.DataBind();
-                        }
-                    }
-                }
-            }
+            GridView1.DataSource = EmployeeBusController.FilterEmployees(new List<EmployeeItemBO>(employees),employeeFilter);
+            GridView1.DataBind();
         }
 
         protected void txtEmpName_TextChanged(object sender, EventArgs e)
@@ -76,45 +132,7 @@ namespace NBU.PayBill.Salary
 
         protected void ddlSelectionMethod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (this.ddlSelectionMethod.SelectedValue)
-            {
-                case "EN":
-                    this.ddlCategory.Visible = false;
-                    this.lblCategoryDDL.Visible = false;
-                    this.ddlDepartment.Visible = false;
-                    this.lblDepartmentDDL.Visible = false;
-                    this.ddlEmployee.Visible = true;
-                    this.lblEmployeeDDL.Visible = true;
-                    this.txtEmpName.Visible = true;
-                    this.lblEmpNameTXT.Visible = true;
-                    this.ddlDesignation.Visible = false;
-                    this.lblDesignationDDL.Visible = false;
-                    break;
-                case "DCS":
-                    this.ddlCategory.Visible = true;
-                    this.lblCategoryDDL.Visible = true;
-                    this.ddlDepartment.Visible = true;
-                    this.lblDepartmentDDL.Visible = true;
-                    this.ddlEmployee.Visible = false;
-                    this.lblEmployeeDDL.Visible = false;
-                    this.txtEmpName.Visible = false;
-                    this.lblEmpNameTXT.Visible = false;
-                    this.ddlDesignation.Visible = false;
-                    this.lblDesignationDDL.Visible = false;
-                    break;
-                case "DD":
-                    this.ddlCategory.Visible = false;
-                    this.lblCategoryDDL.Visible = false;
-                    this.ddlDepartment.Visible = true;
-                    this.lblDepartmentDDL.Visible = true;
-                    this.ddlEmployee.Visible = false;
-                    this.lblEmployeeDDL.Visible = false;
-                    this.txtEmpName.Visible = false;
-                    this.lblEmpNameTXT.Visible = false;
-                    this.ddlDesignation.Visible = true;
-                    this.lblDesignationDDL.Visible = true;
-                    break;
-            }
+            
         }
 
         protected void BtnAddNewEmp_Click(object sender, EventArgs e)
@@ -123,6 +141,7 @@ namespace NBU.PayBill.Salary
             {
                 this.EmployeeDetailsView.Visible = false;
                 btnAddNewEmp.Text = "+ Add New Employee";
+                
             }
             else
             {
@@ -142,6 +161,43 @@ namespace NBU.PayBill.Salary
             GridViewPageEventArgs gve = (GridViewPageEventArgs)e;
             GridView1.PageIndex = gve.NewPageIndex;
             EmpListDemoLoader();
+        }
+
+        protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void ddlDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void ddlDesignation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void ddlEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLoadEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeeItemBO filter = new EmployeeItemBO();
+            filter.EmpName = string.IsNullOrWhiteSpace(txtEmpName.Text)? null : txtEmpName.Text;
+            filter.EmpGroup = ddlCategory.SelectedValue == "null"?null:ddlCategory.SelectedValue;
+            filter.EmpDepartmentCD = ddlDepartment.SelectedValue == "null" ? null : ddlDepartment.SelectedValue;
+            filter.EmpDesignationCD = ddlDesignation.SelectedValue == "null" ? null : ddlDesignation.SelectedValue;
+            employeeFilter = filter;
+            this.btnEditSelected.Visible = true;
+            EmpListDemoLoader();
+        }
+
+        protected void btnEditSelected_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

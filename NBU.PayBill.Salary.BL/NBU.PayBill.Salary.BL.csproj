@@ -44,16 +44,19 @@
   <ItemGroup>
     <Compile Include="BusController\DeptDesigAndFinInstitutionBusController.cs" />
     <Compile Include="BusController\EarningAndDeductionsBC.cs" />
+    <Compile Include="BusController\EmployeeBusController.cs" />
     <Compile Include="BusinessObjects\CategoryBO.cs" />
     <Compile Include="BusinessObjects\DepartmentBO.cs" />
     <Compile Include="BusinessObjects\DesignationBO.cs" />
     <Compile Include="BusinessObjects\EarningDeductionBO.cs" />
     <Compile Include="BusinessObjects\EarningDeductionTypeDescriptionBO.cs" />
     <Compile Include="BusinessObjects\EmployeeBO.cs" />
+    <Compile Include="BusinessObjects\EmployeeItemBO.cs" />
     <Compile Include="BusinessObjects\FinancialInstitutionBO.cs" />
     <Compile Include="BusinessObjects\TransactionBO.cs" />
     <Compile Include="DataAccessService\DeptDesigAndFinInstitutionDAS.cs" />
     <Compile Include="DataAccessService\EarningAndDeductionsDAS.cs" />
+    <Compile Include="DataAccessService\EmployeeDAS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

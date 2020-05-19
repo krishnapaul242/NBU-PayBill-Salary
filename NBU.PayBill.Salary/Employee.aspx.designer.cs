@@ -15,33 +15,6 @@ namespace NBU.PayBill.Salary
     {
 
         /// <summary>
-        /// ddlSelectionMethod control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSelectionMethod;
-
-        /// <summary>
-        /// lblEmpNameTXT control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpNameTXT;
-
-        /// <summary>
-        /// txtEmpName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
-
-        /// <summary>
         /// lblCategoryDDL control.
         /// </summary>
         /// <remarks>
@@ -96,22 +69,31 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.DropDownList ddlDesignation;
 
         /// <summary>
-        /// lblEmployeeDDL control.
+        /// lblEmpNameTXT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmployeeDDL;
+        protected global::System.Web.UI.WebControls.Label lblEmpNameTXT;
 
         /// <summary>
-        /// ddlEmployee control.
+        /// txtEmpName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
+        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
+
+        /// <summary>
+        /// btnLoadEmployees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLoadEmployees;
 
         /// <summary>
         /// btnAddNewEmp control.
@@ -121,6 +103,15 @@ namespace NBU.PayBill.Salary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNewEmp;
+
+        /// <summary>
+        /// btnEditSelected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnEditSelected;
 
         /// <summary>
         /// GridView1 control.

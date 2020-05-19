@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Salary.Master" AutoEventWireup="true" CodeBehind="DeptDesigAndFinInstitution.aspx.cs" Inherits="NBU.PayBill.Salary.DeptDesigAndFinInstitution" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/Salary.Master" AutoEventWireup="true" CodeBehind="DeptDesigAndFinInstitution.aspx.cs" Inherits="NBU.PayBill.Salary.DeptDesigAndFinInstitution" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
         function clearTextBoxes() {

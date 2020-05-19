@@ -51,6 +51,24 @@ namespace NBU.PayBill.Salary.Controls
         protected global::System.Web.UI.WebControls.TextBox uc_txt_PAN;
 
         /// <summary>
+        /// uc_cal_DateOfJoining control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uc_cal_DateOfJoining;
+
+        /// <summary>
+        /// uc_txt_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uc_txt_Address;
+
+        /// <summary>
         /// uc_txt_Phone control.
         /// </summary>
         /// <remarks>
@@ -87,15 +105,6 @@ namespace NBU.PayBill.Salary.Controls
         protected global::System.Web.UI.WebControls.RadioButtonList uc_radio_MaritalStatus;
 
         /// <summary>
-        /// uc_txt_Address control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uc_txt_Address;
-
-        /// <summary>
         /// uc_ddl_Caste control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,33 @@ namespace NBU.PayBill.Salary.Controls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Religion;
+
+        /// <summary>
+        /// uc_ddl_Department control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Department;
+
+        /// <summary>
+        /// uc_ddl_Designation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Designation;
+
+        /// <summary>
+        /// uc_ddl_Category control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Category;
 
         /// <summary>
         /// uc_ddl_BloodGroup control.
@@ -141,40 +177,13 @@ namespace NBU.PayBill.Salary.Controls
         protected global::System.Web.UI.WebControls.TextBox uc_txt_EmergencyContact;
 
         /// <summary>
-        /// uc_ddl_Department control.
+        /// uc_cal_DateOfNextIncrement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Department;
-
-        /// <summary>
-        /// uc_ddl_Designation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Designation;
-
-        /// <summary>
-        /// uc_cal_DateOfJoining control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uc_cal_DateOfJoining;
-
-        /// <summary>
-        /// uc_ddl_Category control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uc_ddl_Category;
+        protected global::System.Web.UI.WebControls.TextBox uc_cal_DateOfNextIncrement;
 
         /// <summary>
         /// uc_check_QuarterProvided control.
@@ -211,15 +220,6 @@ namespace NBU.PayBill.Salary.Controls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uc_cal_DateOfRetirement;
-
-        /// <summary>
-        /// uc_cal_DateOfNextIncrement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uc_cal_DateOfNextIncrement;
 
         /// <summary>
         /// uc_txt_Remarks control.

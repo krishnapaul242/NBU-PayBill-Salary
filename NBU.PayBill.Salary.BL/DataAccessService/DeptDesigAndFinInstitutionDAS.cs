@@ -23,6 +23,9 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
          * Get All departments +
          * Get All designation +
          * Get All financial institution +
+         * Get One Department +
+         * Get One Designation +
+         * Get One Financial Institution +
          */
 
         private string connectionString = string.Empty;
@@ -53,8 +56,9 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 helper.OpenConnection();
                 query = @"
                            INSERT INTO [dbo].[DepartmentMaster]
-                                ([DepartmentName], [DepartmentBankAccount])
-                            VALUES ('"
+                                ([DepartmentID],[DepartmentName], [DepartmentBankAccount])
+                            VALUES (
+                                CAST((SELECT TOP 1 d.[DepartmentID] FROM [DepartmentMaster] as d ORDER BY CAST(d.[DepartmentID] as int) DESC)+1 as varchar),'"
                                 + departmentBO.DepartmentName + @"','" 
                                 + departmentBO.DepartmentBankAccount +
                           @"')";
@@ -206,8 +210,9 @@ namespace NBU.PayBill.Salary.BL.DataAccessService
                 helper.OpenConnection();
                 query = @"
                            INSERT INTO [dbo].[DesignationMaster]
-                                ([DesignationName])
-                            VALUES ('"
+                                ([DesignationID],[DesignationName])
+                            VALUES (
+                                CAST((SELECT TOP 1 d.[DesignationID] FROM [DesignationMaster] as d ORDER BY CAST(d.[DesignationID] as int) DESC)+1 as varchar),'"
                                 + designationBO.DesignationName +
                           @"')";
 
