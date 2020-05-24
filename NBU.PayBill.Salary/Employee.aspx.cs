@@ -95,18 +95,18 @@ namespace NBU.PayBill.Salary
         {
             if (!this.IsPostBack)
             {
+                this.ddlCategory.DataTextField = "CategoryName";
+                this.ddlCategory.DataValueField = "CategoryID";
                 this.ddlCategory.DataSource = this.categories;
                 this.ddlCategory.DataBind();
+                this.ddlDepartment.DataTextField = "DepartmentName";
+                this.ddlDepartment.DataValueField = "DepartmentCD";
                 this.ddlDepartment.DataSource = this.departments;
                 this.ddlDepartment.DataBind();
+                this.ddlDesignation.DataTextField = "DesignationName";
+                this.ddlDesignation.DataValueField = "DesignationCD";
                 this.ddlDesignation.DataSource = this.designations;
                 this.ddlDesignation.DataBind();
-                this.ed_ddlCategory.DataSource = this.categories;
-                this.ed_ddlCategory.DataBind();
-                this.ed_ddlDepartment.DataSource = this.departments;
-                this.ed_ddlDepartment.DataBind();
-                this.ed_ddlDesignation.DataSource = this.designations;
-                this.ed_ddlDesignation.DataBind();
             }
             else
             {
@@ -114,112 +114,15 @@ namespace NBU.PayBill.Salary
             }
         }
 
-        private void ShowEmpDetails(string EmpID) 
+        private void ShowEmpDetails(string empCode)
         {
-            EmployeeBO employee = EmployeeBusController.GetEmployee(EmpID);
-            if (employee.EmpID != null)
-            {
-                this.ed_Name.Text = employee.EmpName;
-                this.ed_UID.Text = employee.EmpAADHAR;
-                this.ed_PAN.Text = employee.EmpPAN;
-                this.ed_Address.Text = employee.EmpResidentialAddress;
-                this.ed_Email.Text = employee.EmpEmailId;
-                this.ed_Phone.Text = employee.EmpPersonalContactNo;
-                this.ed_Qualification.Text = employee.EmpQualification;
-                this.ed_Quarter.Text = employee.EmpQuarterNumber;
-                this.ed_IsActive.Text = employee.EmpIsActive == "Y" ? "YES" : "NO";
-                this.ed_EmergencyPhone.Text = employee.EmpEmergencyContactNo;
-                this.ed_Remarks.Text = employee.EmpRemarks;
-                this.ed_DOB.Text = employee.EmpDOB;
-                this.ed_DOJ.Text = employee.EmpDOJ;
-                this.ed_DOR.Text = employee.EmpDOR;
-                this.ed_DNI.Text = employee.EmpDNI;
-                this.ed_ddlCaste.ClearSelection();
-                try
-                {
-                    this.ed_ddlCaste.Items.FindByValue(employee.EmpCaste).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlCaste.Items.FindByValue("null").Selected = true;
 
-                }
-                this.ed_ddlCategory.ClearSelection();
-                try
-                {
-                    this.ed_ddlCategory.Items.FindByValue(employee.EmpGroup).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlCategory.Items.FindByValue("null").Selected = true;
-                }
-                this.ed_ddlReligion.ClearSelection();
-                try
-                {
-                    this.ed_ddlReligion.Items.FindByValue(employee.EmpReligion).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlReligion.Items.FindByValue("null").Selected = true;
-                }
-                this.ed_ddlMStatus.ClearSelection();
-                try
-                {
-                    this.ed_ddlMStatus.Items.FindByValue(employee.EmpMaritalStatus).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlMStatus.Items.FindByValue("null").Selected = true;
-                }
-                this.ed_ddlDepartment.ClearSelection();
-                try
-                {
-                    this.ed_ddlDepartment.Items.FindByValue(employee.EmpDepartmentCD).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlDepartment.Items.FindByValue("null").Selected = true;
-                }
-                this.ed_ddlDesignation.ClearSelection();
-                try
-                {
-                    this.ed_ddlDesignation.Items.FindByValue(employee.EmpDesignationCD).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlDesignation.Items.FindByValue("null").Selected = true;
-                }
-                this.ed_ddlGender.ClearSelection();
-                try
-                {
-                    this.ed_ddlGender.Items.FindByValue(employee.EmpSex).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlGender.Items.FindByValue("null").Selected = true;
-                }
-                this.ed_ddlBloodGroup.ClearSelection();
-                try
-                {
-                    this.ed_ddlBloodGroup.Items.FindByValue(employee.EmpBloodGroup).Selected = true;
-                }
-                catch (NullReferenceException ex)
-                {
-                    this.ed_ddlBloodGroup.Items.FindByValue("null").Selected = true;
-                }
-                btnAdd.Enabled = false;
-            }
-            else btnAdd.Enabled = true;
         }
 
         private void EmpListDemoLoader()
         {
-            this.ddlEmployee.DataTextField = "EmpName";
-            this.ddlEmployee.DataValueField = "EmpID";
-            this.ddlEmployee.Items.Clear();
-            this.ddlEmployee.Items.Add(new ListItem("Select Employee", "null"));
-            this.ddlEmployee.DataSource = EmployeeBusController.FilterEmployees(new List<EmployeeItemBO>(employees), employeeFilter);
-            this.ddlEmployee.DataBind();
+            GridView1.DataSource = EmployeeBusController.FilterEmployees(new List<EmployeeItemBO>(employees),employeeFilter);
+            GridView1.DataBind();
         }
 
         protected void txtEmpName_TextChanged(object sender, EventArgs e)
@@ -227,8 +130,38 @@ namespace NBU.PayBill.Salary
 
         }
 
+        protected void ddlSelectionMethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
             
-       
+        }
+
+        protected void BtnAddNewEmp_Click(object sender, EventArgs e)
+        {
+            if (this.EmployeeDetailsView.Visible)
+            {
+                this.EmployeeDetailsView.Visible = false;
+                btnAddNewEmp.Text = "+ Add New Employee";
+                
+            }
+            else
+            {
+                this.EmployeeDetailsView.Visible = true;
+                btnAddNewEmp.Text = "Cancel";
+            }
+
+        }
+
+        protected void GridView1_PageIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewPageEventArgs gve = (GridViewPageEventArgs)e;
+            GridView1.PageIndex = gve.NewPageIndex;
+            EmpListDemoLoader();
+        }
 
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -247,7 +180,7 @@ namespace NBU.PayBill.Salary
 
         protected void ddlEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowEmpDetails(ddlEmployee.SelectedValue);
+
         }
 
         protected void btnLoadEmployees_Click(object sender, EventArgs e)
@@ -258,109 +191,13 @@ namespace NBU.PayBill.Salary
             filter.EmpDepartmentCD = ddlDepartment.SelectedValue == "null" ? null : ddlDepartment.SelectedValue;
             filter.EmpDesignationCD = ddlDesignation.SelectedValue == "null" ? null : ddlDesignation.SelectedValue;
             employeeFilter = filter;
+            this.btnEditSelected.Visible = true;
             EmpListDemoLoader();
         }
 
         protected void btnEditSelected_Click(object sender, EventArgs e)
         {
             
-        }
-
-        protected void ddlEmployee_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if(ddlEmployee.SelectedIndex > 2)
-            {
-                ddlEmployee.SelectedIndex = ddlEmployee.SelectedIndex - 1;
-            }
-            else
-            {
-                ddlEmployee.SelectedIndex = ddlEmployee.Items.Count - 1;
-            }
-            ShowEmpDetails(ddlEmployee.SelectedValue);
-        }
-
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-            if(ddlEmployee.SelectedIndex >= (ddlEmployee.Items.Count - 1))
-            {
-                ddlEmployee.SelectedIndex = 1;
-            }
-            else
-            {
-                ddlEmployee.SelectedIndex = ddlEmployee.SelectedIndex + 1;
-            }
-            ShowEmpDetails(ddlEmployee.SelectedValue);
-        }
-
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-            EmployeeBO employee = new EmployeeBO();
-            employee.EmpAADHAR = this.ed_UID.Text;
-            employee.EmpBloodGroup = this.ed_ddlBloodGroup.SelectedValue;
-            employee.EmpCaste = this.ed_ddlCaste.SelectedValue;
-            employee.EmpDepartmentCD = this.ed_ddlDepartment.SelectedValue;
-            employee.EmpDesignationCD = this.ed_ddlDesignation.SelectedValue;
-            employee.EmpDNI = this.ed_DNI.Text;
-            employee.EmpDOB = this.ed_DOB.Text;
-            employee.EmpDOJ = this.ed_DOJ.Text;
-            employee.EmpDOR = this.ed_DOR.Text;
-            employee.EmpEmailId = this.ed_Email.Text;
-            employee.EmpEmergencyContactNo = this.ed_EmergencyPhone.Text;
-            employee.EmpGroup = this.ed_ddlCategory.SelectedValue;
-            employee.EmpIsActive = this.ed_IsActive.Text;
-            employee.EmpMaritalStatus = this.ed_ddlMStatus.SelectedValue;
-            employee.EmpName = this.ed_Name.Text;
-            employee.EmpPAN = this.ed_PAN.Text;
-            employee.EmpPersonalContactNo = this.ed_Phone.Text;
-            employee.EmpQualification = this.ed_Qualification.Text;
-            employee.EmpQuarterNumber = this.ed_Quarter.Text;
-            employee.EmpReligion = this.ed_ddlReligion.SelectedValue;
-            employee.EmpRemarks = this.ed_Remarks.Text;
-            employee.EmpResidentialAddress = this.ed_Address.Text;
-            employee.EmpSex = this.ed_ddlGender.SelectedValue;
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            EmployeeBO employee = new EmployeeBO();
-            employee.EmpAADHAR = this.ed_UID.Text;
-            employee.EmpBloodGroup = this.ed_ddlBloodGroup.SelectedValue;
-            employee.EmpCaste = this.ed_ddlCaste.SelectedValue;
-            employee.EmpDepartmentCD = this.ed_ddlDepartment.SelectedValue;
-            employee.EmpDesignationCD = this.ed_ddlDesignation.SelectedValue;
-            employee.EmpDNI = this.ed_DNI.Text;
-            employee.EmpDOB = this.ed_DOB.Text;
-            employee.EmpDOJ = this.ed_DOJ.Text;
-            employee.EmpDOR = this.ed_DOR.Text;
-            employee.EmpEmailId = this.ed_Email.Text;
-            employee.EmpEmergencyContactNo = this.ed_EmergencyPhone.Text;
-            employee.EmpGroup = this.ed_ddlCategory.SelectedValue;
-            employee.EmpIsActive = this.ed_IsActive.Text;
-            employee.EmpMaritalStatus = this.ed_ddlMStatus.SelectedValue;
-            employee.EmpName = this.ed_Name.Text;
-            employee.EmpPAN = this.ed_PAN.Text;
-            employee.EmpPersonalContactNo = this.ed_Phone.Text;
-            employee.EmpQualification = this.ed_Qualification.Text;
-            employee.EmpQuarterNumber = this.ed_Quarter.Text;
-            employee.EmpReligion = this.ed_ddlReligion.SelectedValue;
-            employee.EmpRemarks = this.ed_Remarks.Text;
-            employee.EmpResidentialAddress = this.ed_Address.Text;
-            employee.EmpSex = this.ed_ddlGender.SelectedValue;
-        }
-
-        protected void btnPrint_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

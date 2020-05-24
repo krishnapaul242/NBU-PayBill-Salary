@@ -44,20 +44,5 @@ namespace NBU.PayBill.Salary.BL.BusController
 
             return employees;
         }
-
-        public static EmployeeBO GetEmployee(string EmpCode)
-        {
-            EmployeeBO employee = new EmployeeBO();
-            employee.EmpID = null;
-            EmployeeDAS employeeDAS = new EmployeeDAS();
-            string jsondata = employeeDAS.GetEmployeeByID(EmpCode);
-            List<EmployeeBO> employeeBOs = new List<EmployeeBO>();
-            if (!jsondata.StartsWith("DB_ERROR"))
-            {
-                employeeBOs = StringUtil.DeserializeObjectFromJSON<List<EmployeeBO>>(jsondata);
-                employee = employeeBOs.ElementAt(0);
-            }
-            return employee;
-        }
     }
 }
