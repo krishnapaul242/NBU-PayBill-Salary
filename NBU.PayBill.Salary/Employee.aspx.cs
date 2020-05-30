@@ -209,13 +209,20 @@ namespace NBU.PayBill.Salary
                 }
                 btnAdd.Enabled = false;
             }
-            else btnAdd.Enabled = true;
+            else
+            {
+                btnAdd.Enabled = true;
+            }
+
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>")]
         private void EmpListDemoLoader()
         {
             this.ddlEmployee.DataTextField = "EmpName";
             this.ddlEmployee.DataValueField = "EmpID";
+            this.ddlEmployee.Items.Clear();
+            this.ddlEmployee.Items.Add(new ListItem("Please Select", "null"));
             this.ddlEmployee.DataSource = EmployeeBusController.FilterEmployees(new List<EmployeeItemBO>(employees), employeeFilter);
             this.ddlEmployee.DataBind();
         }
@@ -224,10 +231,7 @@ namespace NBU.PayBill.Salary
         {
 
         }
-
-            
-       
-
+        
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -297,7 +301,22 @@ namespace NBU.PayBill.Salary
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if(ddlEmployee.SelectedValue == "null" || String.IsNullOrEmpty(ddlEmployee.SelectedValue))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Nothing is selected to delete.')", true);
+            }
+            else
+            {
+                bool result = EmployeeBusController.DeleteEmployee(ddlEmployee.SelectedValue);
+                if (result)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Employee Deleted Successfully')", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Employee not deleted. Some Problem Occurred')", true);
+                }
+            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -326,6 +345,16 @@ namespace NBU.PayBill.Salary
             employee.EmpRemarks = this.ed_Remarks.Text;
             employee.EmpResidentialAddress = this.ed_Address.Text;
             employee.EmpSex = this.ed_ddlGender.SelectedValue;
+            employee.EmpID = this.ddlEmployee.SelectedValue;
+            bool result = EmployeeBusController.UpdateEmployee(employee);
+            if (result)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Employee Updated Successfully')", true);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Employee not updated. Some Problem Occurred')", true);
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -354,6 +383,15 @@ namespace NBU.PayBill.Salary
             employee.EmpRemarks = this.ed_Remarks.Text;
             employee.EmpResidentialAddress = this.ed_Address.Text;
             employee.EmpSex = this.ed_ddlGender.SelectedValue;
+            bool result = EmployeeBusController.AddEmployee(employee);
+            if (result)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Employee addted Successfully')", true);
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Employee not added. Some Problem Occurred')", true);
+            }
         }
 
         protected void btnPrint_Click(object sender, EventArgs e)

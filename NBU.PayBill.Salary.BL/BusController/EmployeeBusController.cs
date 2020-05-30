@@ -59,5 +59,29 @@ namespace NBU.PayBill.Salary.BL.BusController
             }
             return employee;
         }
+
+        public static bool AddEmployee(EmployeeBO employee)
+        {
+            EmployeeDAS employeeDAS = new EmployeeDAS();
+            int numberOfRowImpacted = 0;
+            numberOfRowImpacted = employeeDAS.AddEmployee(employee);
+            return numberOfRowImpacted > 0;
+        }
+
+        public static bool UpdateEmployee(EmployeeBO employee)
+        {
+            EmployeeDAS employeeDAS = new EmployeeDAS();
+            int numberOfRowImpacted = 0;
+            numberOfRowImpacted = employeeDAS.UpdateEmployee(employee);
+            return numberOfRowImpacted > 0;
+        }
+        
+        public static bool DeleteEmployee(string EmpID)
+        {
+            EmployeeDAS employeeDAS = new EmployeeDAS();
+            int numberOfRowImpacted = 0;
+            numberOfRowImpacted = employeeDAS.DeleteEmployee(EmpID);
+            return numberOfRowImpacted > 0;
+        }
     }
 }

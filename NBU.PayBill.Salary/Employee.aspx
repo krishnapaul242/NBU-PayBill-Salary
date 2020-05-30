@@ -97,25 +97,25 @@
                                 <div class="col-md-2 mr-3 ">
 
                                     <label for="ed_DOB">Date of Birth</label>
-                                    <asp:TextBox ID="ed_DOB" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="ed_DOB" type="date" runat="server" CssClass="form-control"></asp:TextBox>
 
                                 </div>
                                 <div class="col-md-2 mr-3 ">
 
                                     <label for="ed_DOJ">Date of Joining</label>
-                                    <asp:TextBox ID="ed_DOJ" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="ed_DOJ" type="date" runat="server" CssClass="form-control"></asp:TextBox>
 
                                 </div>
                                 <div class="col-md-2 mr-3 ">
 
                                     <label for="ed_DOR">Date of Retirement</label>
-                                    <asp:TextBox ID="ed_DOR" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="ed_DOR" type="date" runat="server" CssClass="form-control"></asp:TextBox>
 
                                 </div>
                                 <div class="col-md-2 mr-3 ">
 
                                     <label for="ed_DNI">Date of Next Increment</label>
-                                    <asp:TextBox ID="ed_DNI" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="ed_DNI" type="date" runat="server" CssClass="form-control"></asp:TextBox>
 
                                 </div>
                                 <div class="col-md-2 mr-3 ">
