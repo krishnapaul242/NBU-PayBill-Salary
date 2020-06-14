@@ -11,7 +11,7 @@ namespace NBU.PayBill.Salary
 {
 
 
-    public partial class Employee
+    public partial class SalaryEarningsDeductions
     {
 
         /// <summary>
@@ -51,282 +51,237 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.TextBox txtEmpName;
 
         /// <summary>
-        /// btnLoadEmployees control.
+        /// btnFilterEmployees control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoadEmployees;
+        protected global::System.Web.UI.WebControls.Button btnFilterEmployees;
 
         /// <summary>
-        /// ddlEmployee control.
+        /// btnEarningsDeductions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
+        protected global::System.Web.UI.WebControls.Button btnEarningsDeductions;
 
         /// <summary>
-        /// ed_Name control.
+        /// btnPayScale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Name;
+        protected global::System.Web.UI.WebControls.Button btnPayScale;
 
         /// <summary>
-        /// ed_UID control.
+        /// btnSubcategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_UID;
+        protected global::System.Web.UI.WebControls.Button btnSubcategory;
 
         /// <summary>
-        /// ed_PAN control.
+        /// PayscaleBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_PAN;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PayscaleBox;
 
         /// <summary>
-        /// ed_Address control.
+        /// PStxtEffMonthYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Address;
+        protected global::System.Web.UI.WebControls.TextBox PStxtEffMonthYear;
 
         /// <summary>
-        /// ed_Email control.
+        /// PSddlCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Email;
+        protected global::System.Web.UI.WebControls.DropDownList PSddlCategory;
 
         /// <summary>
-        /// ed_Phone control.
+        /// PStxtPayBandNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Phone;
+        protected global::System.Web.UI.WebControls.TextBox PStxtPayBandNum;
 
         /// <summary>
-        /// ed_IsActive control.
+        /// PStxtStartPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_IsActive;
+        protected global::System.Web.UI.WebControls.TextBox PStxtStartPay;
 
         /// <summary>
-        /// ed_DOB control.
+        /// PStxtEndPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_DOB;
+        protected global::System.Web.UI.WebControls.TextBox PStxtEndPay;
 
         /// <summary>
-        /// ed_DOJ control.
+        /// PStxtGradePay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_DOJ;
+        protected global::System.Web.UI.WebControls.TextBox PStxtGradePay;
 
         /// <summary>
-        /// ed_DOR control.
+        /// PStxtSpecialPay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_DOR;
+        protected global::System.Web.UI.WebControls.TextBox PStxtSpecialPay;
 
         /// <summary>
-        /// ed_DNI control.
+        /// EarningDeductionBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_DNI;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EarningDeductionBox;
 
         /// <summary>
-        /// ed_Quarter control.
+        /// EDtxtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Quarter;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtName;
 
         /// <summary>
-        /// ed_ddlGender control.
+        /// EDddlType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlGender;
+        protected global::System.Web.UI.WebControls.DropDownList EDddlType;
 
         /// <summary>
-        /// ed_ddlMStatus control.
+        /// EDddlForAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlMStatus;
+        protected global::System.Web.UI.WebControls.DropDownList EDddlForAll;
 
         /// <summary>
-        /// ed_ddlCaste control.
+        /// EDtxtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlCaste;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtDescription;
 
         /// <summary>
-        /// ed_ddlReligion control.
+        /// EDddlFixedVariable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlReligion;
+        protected global::System.Web.UI.WebControls.DropDownList EDddlFixedVariable;
 
         /// <summary>
-        /// ed_ddlDepartment control.
+        /// EDtxtWEFmonthYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlDepartment;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtWEFmonthYear;
 
         /// <summary>
-        /// ed_ddlDesignation control.
+        /// EDddlCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlDesignation;
+        protected global::System.Web.UI.WebControls.DropDownList EDddlCategory;
 
         /// <summary>
-        /// ed_ddlCategory control.
+        /// EDtxtScale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlCategory;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtScale;
 
         /// <summary>
-        /// ed_ddlBloodGroup control.
+        /// EDlstDesignations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ed_ddlBloodGroup;
+        protected global::System.Web.UI.WebControls.DropDownList EDlstDesignations;
 
         /// <summary>
-        /// ed_Qualification control.
+        /// EDtxtFixedValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Qualification;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtFixedValue;
 
         /// <summary>
-        /// ed_EmergencyPhone control.
+        /// EDtxtConditionOperator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_EmergencyPhone;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtConditionOperator;
 
         /// <summary>
-        /// ed_Remarks control.
+        /// EDtxtConditionValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ed_Remarks;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtConditionValue;
 
         /// <summary>
-        /// btnPrevious control.
+        /// EDtxtMaxValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrevious;
-
-        /// <summary>
-        /// btnNext control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNext;
-
-        /// <summary>
-        /// btnPrint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPrint;
-
-        /// <summary>
-        /// btnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
-
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.TextBox EDtxtMaxValue;
     }
 }

@@ -59,7 +59,6 @@
     <Compile Include="DataAccessService\EmployeeDAS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\NBU.Common.Helper\NBU.Common.Helper.csproj">
       <Project>{8E473E1A-5DAF-4E0B-BF8A-6D42C23FE773}</Project>
