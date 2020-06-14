@@ -46,7 +46,6 @@
                             </div>
                         </div>
                         <div class="panel-body" style="max-height: 700px;">
-                            <uc:EmployeeDetails ClientIDMode="Static" ID="EmployeeDetailsView" runat="server" Visible="false" />
                             <div class="row">
                                 <div class="col-md-6 mr-3 ">
 

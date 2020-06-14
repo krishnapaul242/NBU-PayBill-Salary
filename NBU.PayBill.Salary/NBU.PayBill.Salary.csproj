@@ -133,6 +133,7 @@
     <Content Include="lib\font-awesome\webfonts\fa-regular-400.svg" />
     <Content Include="lib\font-awesome\webfonts\fa-solid-900.svg" />
     <Content Include="Reports.aspx" />
+    <Content Include="SalaryEarningsDeductions.aspx" />
     <Content Include="Transaction.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -255,6 +256,13 @@
     </Compile>
     <Compile Include="Salary.Master.designer.cs">
       <DependentUpon>Salary.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryEarningsDeductions.aspx.cs">
+      <DependentUpon>SalaryEarningsDeductions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalaryEarningsDeductions.aspx.designer.cs">
+      <DependentUpon>SalaryEarningsDeductions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction.aspx.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>
