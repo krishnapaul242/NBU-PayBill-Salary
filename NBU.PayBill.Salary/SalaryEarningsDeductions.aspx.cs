@@ -13,5 +13,17 @@ namespace NBU.PayBill.Salary
         {
 
         }
+
+        protected void btnEarningsDeductions_Click(object sender, EventArgs e)
+        {
+            this.EarningDeductionBox.Visible = true;
+            this.PayscaleBox.Visible = false;
+        }
+
+        protected void btnPayScale_Click(object sender, EventArgs e)
+        {
+            this.EarningDeductionBox.Visible = false;
+            this.PayscaleBox.Visible = true;
+        }
     }
 }

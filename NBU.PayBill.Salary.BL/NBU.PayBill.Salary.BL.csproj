@@ -53,6 +53,7 @@
     <Compile Include="BusinessObjects\EmployeeBO.cs" />
     <Compile Include="BusinessObjects\EmployeeItemBO.cs" />
     <Compile Include="BusinessObjects\FinancialInstitutionBO.cs" />
+    <Compile Include="BusinessObjects\PayScaleBO.cs" />
     <Compile Include="BusinessObjects\TransactionBO.cs" />
     <Compile Include="DataAccessService\DeptDesigAndFinInstitutionDAS.cs" />
     <Compile Include="DataAccessService\EarningAndDeductionsDAS.cs" />
@@ -61,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NBU.Common.Helper\NBU.Common.Helper.csproj">
-      <Project>{8E473E1A-5DAF-4E0B-BF8A-6D42C23FE773}</Project>
+      <Project>{8e473e1a-5daf-4e0b-bf8a-6d42c23fe773}</Project>
       <Name>NBU.Common.Helper</Name>
     </ProjectReference>
   </ItemGroup>
