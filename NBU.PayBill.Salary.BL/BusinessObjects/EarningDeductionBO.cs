@@ -9,51 +9,34 @@ namespace NBU.PayBill.Salary.BL.BusinessObjects
     [Serializable]
     public class EarningDeductionBO
     {
-        private string edTypeID;
-        private string edTypeName;
-        private string isEarningOrDeduction;
-        private string inSalarySlipForAll;
-        private string categories;
-        private string subcategories;
+        private string edcode;
+        private string edtype;
+        private string edname;
+        private string edscale;
+        private string eddescription;
+        private string edisFixedOrVariable;
+        private string edvalue;
+        private string edeligibilityConditionOperator;
+        private string edeligibiltyConditionValue;
+        private string edmaxValue;
+        private string edcategory;
+        private string edsubcategory;
+        private string edWEF_monthYear;
+        private string edforAll;
 
-        public EarningDeductionBO()
-        {
-        }
-
-        public string EDTypeID
-        {
-            get => edTypeID;
-            set => edTypeID = value;
-        }
-
-        public string EDTypeName
-        {
-            get => edTypeName;
-            set => edTypeName = value;
-        }
-
-        public string IsEarningOrDeduction
-        {
-            get => isEarningOrDeduction;
-            set => isEarningOrDeduction = value;
-        }
-
-        public string InSalarySlipForAll
-        {
-            get => inSalarySlipForAll;
-            set => inSalarySlipForAll = value;
-        }
-
-        public string Categories
-        { 
-            get => categories; 
-            set => categories = value; 
-        }
-
-        public string Subcategories 
-        { 
-            get => subcategories; 
-            set => subcategories = value; 
-        }
+        public string EDid { get => edcode; set => edcode = value; }
+        public string EDtype { get => edtype; set => edtype = value; }
+        public string EDname { get => edname; set => edname = value; }
+        public string EDscale { get => edscale; set => edscale = value; }
+        public string EDdescription { get => eddescription; set => eddescription = value; }
+        public string EDfixOrVar { get => edisFixedOrVariable; set => edisFixedOrVariable = value; }
+        public string EDvalue { get => edvalue; set => edvalue = value; }
+        public string EDeligibilityCondOp { get => edeligibilityConditionOperator; set => edeligibilityConditionOperator = value; }
+        public string EDeligibiltyCondValue { get => edeligibiltyConditionValue; set => edeligibiltyConditionValue = value; }
+        public string EDmaxValue { get => edmaxValue; set => edmaxValue = value; }
+        public string EDcategory { get => edcategory; set => edcategory = value; }
+        public string EDsubcategory { get => edsubcategory; set => edsubcategory = value; }
+        public string EDmonthYear { get => edWEF_monthYear; set => edWEF_monthYear = value; }
+        public string EDforAll { get => edforAll; set => edforAll = value; }
     }
 }

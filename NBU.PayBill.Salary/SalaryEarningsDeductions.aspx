@@ -5,47 +5,32 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div class="row">
-                <div class="col-md-2 col-sm-12 mx-auto"><b>Salary, Earnings & Deductions</b> </div>
-                <div class="col-md-2 col-sm-6 mr-3">
-                    <asp:DropDownList AutoPostBack="false" ID="ddlCategory" ToolTip="Select Category" runat="server" Visible="true" CssClass="form-control" AppendDataBoundItems="true" DataTextField="CategoryName" DataValueField="CategoryID">
-                        <asp:ListItem Text="Select Category" Value="null" />
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-2 col-sm-6 mr-3">
-                    <asp:DropDownList AutoPostBack="false" ID="ddlDepartment" ToolTip="Select Department" runat="server" Visible="true" CssClass="form-control" AppendDataBoundItems="true" DataTextField="DepartmentName" DataValueField="DepartmentCD">
-                        <asp:ListItem Text="Select Department" Value="null" />
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-2 col-sm-6 mr-3">
-                    <asp:DropDownList AutoPostBack="false" ID="ddlDesignation" ToolTip="Select Designation" runat="server" Visible="true" CssClass="form-control" AppendDataBoundItems="true" DataTextField="DesignationName" DataValueField="DesignationCD">
-                        <asp:ListItem Text="Select Designation" Value="null" />
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-2 col-sm-6 mr-3">
-                    <asp:TextBox AutoPostBack="false" ID="txtEmpName" ToolTip="Type Employee Name" placeholder="Enter Employee Name" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                </div>
-                <div class="col-md-2 col-sm-12">
-                    <asp:Button ID="btnFilterEmployees" runat="server" ToolTip="Filter and Load employee data" CssClass="btn btn-block btn-default" Text="Filter Employees" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-12"></div>
+            <div class="row m-3">
+                <div class="col-md-3 col-sm-12 mx-auto"><b>Salary, Earnings & Deductions</b> </div>
                 <div class="col-md-3 col-sm-4">
-                    <asp:Button ID="btnEarningsDeductions" runat="server" ToolTip="Add, Edit, and Update Earnings and Deductions" CssClass="btn btn-block btn-default" Text="Earnings and Deductions Actions" />
+                    <asp:Button ID="btnEarningsDeductions" runat="server" ToolTip="Add, Edit, and Update Earnings and Deductions" CssClass="btn btn-block btn-default" Text="Earnings and Deductions Actions" OnClick="btnEarningsDeductions_Click" />
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <asp:Button ID="btnPayScale" runat="server" ToolTip="Add and Update Payment Scales" CssClass="btn btn-block btn-default" Text="Payment Scales" />
+                    <asp:Button ID="btnPayScale" runat="server" ToolTip="Add and Update Payment Scales" CssClass="btn btn-block btn-default" Text="Payment Scales" OnClick="btnPayScale_Click" />
                 </div>
                 <div class="col-md-3 col-sm-4">
-                    <asp:Button ID="btnSubcategory" runat="server" ToolTip="Add and Update Employee Subcategories" CssClass="btn btn-block btn-default" Text="Employee Subcategories" />
+                    <asp:Button ID="btnEmpSalary" runat="server" ToolTip="Update Employee Salary" CssClass="btn btn-block btn-default" Text="Employee Subcategories" />
                 </div>
 
             </div>
         </div>
         <div class="panel-body">
+            <%-- PayScale UI --%>
             <div id="PayscaleBox" runat="server" visible="false">
-                <div class="row">
+                <div class="row m-3">
+                    <div class="col-md-4 col-sm-6"><b>Pay Scales</b><sup>[Select from dropdown to edit.]</sup></div>
+                    <div class="col-md-4 col-sm-6">
+                        <asp:DropDownList ID="PSddlPayScales" runat="server" CssClass="form-control">
+                            <asp:ListItem Text="New" Value="null" Selected="True"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="row m-3">
                     <div class="col-md-4">
                         <label for="PStxtEffMonthYear">Effective Month and Year</label>
                         <asp:TextBox ID="PStxtEffMonthYear" type="month" runat="server" CssClass="form-control"></asp:TextBox>
@@ -61,7 +46,7 @@
                         <asp:TextBox ID="PStxtPayBandNum" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row m-3">
                     <div class="col-md-3">
                         <label for="PStxtStartPay">Start Payment</label>
                         <asp:TextBox ID="PStxtStartPay" runat="server" CssClass="form-control"></asp:TextBox>
@@ -79,9 +64,27 @@
                         <asp:TextBox ID="PStxtSpecialPay" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
+                <div class="row m-3">
+                    <div class="col-md-10 col-sm-6"></div>
+                    <div class="col-md-1 col-sm-3">
+                        <asp:Button ID="PSbtnAdd" runat="server" Text="Add" CssClass="form-control" />
+                    </div>
+                    <div class="col-md-1 col-sm-3">
+                        <asp:Button ID="PSbtnUpdate" runat="server" Text="Update" CssClass="form-control" />
+                    </div>
+                </div>
             </div>
-            <div id="EarningDeductionBox" runat="server" visible="true">
-                <div class="row">
+            <%--Earnings and Deductions UI--%>
+            <div id="EarningDeductionBox" runat="server" visible="false">
+                <div class="row m-3">
+                    <div class="col-md-4 col-sm-6"><b>Earnings and Deductions</b><sup>[Select from dropdown to edit.]</sup></div>
+                    <div class="col-md-4 col-sm-6">
+                        <asp:DropDownList ID="EDddlEarningsDeductions" runat="server" CssClass="form-control">
+                            <asp:ListItem Text="New" Value="null" Selected="True"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="row m-3">
                     <div class="col-md-2 col-sm-4">
                         <label for="EDtxtName">Name</label>
                         <asp:TextBox ID="EDtxtName" runat="server" CssClass="form-control"></asp:TextBox>
@@ -107,7 +110,7 @@
                         <asp:TextBox ID="EDtxtDescription" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row m-3">
                     <div class="col-md-2 col-sm-4">
                         <label for="EDddlForAll">Fixed or Variable?</label>
                         <asp:DropDownList ID="EDddlFixedVariable" runat="server" AutoPostBack="false" AppendDataBoundItems="true" CssClass="form-control">
@@ -144,7 +147,7 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row m-3">
                     <div class="col-md-3 col-sm-6">
                         <label for="EDtxtFixedValue">Fixed Value</label>
                         <asp:TextBox ID="EDtxtFixedValue" runat="server" CssClass="form-control"></asp:TextBox>
@@ -162,6 +165,19 @@
                         <asp:TextBox ID="EDtxtMaxValue" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
+                <div class="row m-3">
+                    <div class="col-md-10 col-sm-6"></div>
+                    <div class="col-md-1 col-sm-3">
+                        <asp:Button ID="EDbtnAdd" runat="server" Text="Add" CssClass="form-control" />
+                    </div>
+                    <div class="col-md-1 col-sm-3">
+                        <asp:Button ID="EDbtnUpdate" runat="server" Text="Update" CssClass="form-control" />
+                    </div>
+                </div>
+            </div>
+            <%--Employee Salary UI--%>
+            <div id="EmployeeSalaryBox" runat="server" visible="true">
+
             </div>
         </div>
     </div>

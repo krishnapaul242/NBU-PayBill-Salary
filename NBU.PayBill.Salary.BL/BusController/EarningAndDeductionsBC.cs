@@ -23,11 +23,19 @@ namespace NBU.PayBill.Salary.BL.BusController
             return categoryBOs;
         }
 
-        public static int AddCategory(CategoryBO categoryBO)
+        public static bool AddCategory(CategoryBO categoryBO)
         {
             EarningAndDeductionsDAS earningAndDeductionsDAS = new EarningAndDeductionsDAS();
             int result = earningAndDeductionsDAS.AddNewCategory(categoryBO);
-            return result;
+            return result > 0;
+        }
+
+        public static bool UpdateCategory(CategoryBO categoryBO)
+        {
+            EarningAndDeductionsDAS earningAndDeductionsDAS = new EarningAndDeductionsDAS();
+            int numberOfRowImpacted = 0;
+            numberOfRowImpacted = earningAndDeductionsDAS.UpdateCategory(categoryBO);
+            return numberOfRowImpacted > 0;
         }
     }
 }

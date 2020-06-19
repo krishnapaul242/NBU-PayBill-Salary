@@ -15,51 +15,6 @@ namespace NBU.PayBill.Salary
     {
 
         /// <summary>
-        /// ddlCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
-
-        /// <summary>
-        /// ddlDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
-
-        /// <summary>
-        /// ddlDesignation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDesignation;
-
-        /// <summary>
-        /// txtEmpName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
-
-        /// <summary>
-        /// btnFilterEmployees control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFilterEmployees;
-
-        /// <summary>
         /// btnEarningsDeductions control.
         /// </summary>
         /// <remarks>
@@ -78,13 +33,13 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.Button btnPayScale;
 
         /// <summary>
-        /// btnSubcategory control.
+        /// btnEmpSalary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubcategory;
+        protected global::System.Web.UI.WebControls.Button btnEmpSalary;
 
         /// <summary>
         /// PayscaleBox control.
@@ -94,6 +49,15 @@ namespace NBU.PayBill.Salary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PayscaleBox;
+
+        /// <summary>
+        /// PSddlPayScales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PSddlPayScales;
 
         /// <summary>
         /// PStxtEffMonthYear control.
@@ -159,6 +123,24 @@ namespace NBU.PayBill.Salary
         protected global::System.Web.UI.WebControls.TextBox PStxtSpecialPay;
 
         /// <summary>
+        /// PSbtnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PSbtnAdd;
+
+        /// <summary>
+        /// PSbtnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PSbtnUpdate;
+
+        /// <summary>
         /// EarningDeductionBox control.
         /// </summary>
         /// <remarks>
@@ -166,6 +148,15 @@ namespace NBU.PayBill.Salary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl EarningDeductionBox;
+
+        /// <summary>
+        /// EDddlEarningsDeductions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EDddlEarningsDeductions;
 
         /// <summary>
         /// EDtxtName control.
@@ -283,5 +274,32 @@ namespace NBU.PayBill.Salary
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EDtxtMaxValue;
+
+        /// <summary>
+        /// EDbtnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EDbtnAdd;
+
+        /// <summary>
+        /// EDbtnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EDbtnUpdate;
+
+        /// <summary>
+        /// EmployeeSalaryBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl EmployeeSalaryBox;
     }
 }
